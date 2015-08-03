@@ -33,6 +33,10 @@ public class GsonSerializer<T> implements AsyncParser<T> {
         this.gson = gson;
         type = token.getType();
     }
+    public GsonSerializer(Gson gson, Type type) {
+        this.gson = gson;
+        this.type = type;
+    }
     @Override
     public Future<T> parse(DataEmitter emitter) {
         return new ByteBufferListParser().parse(emitter)

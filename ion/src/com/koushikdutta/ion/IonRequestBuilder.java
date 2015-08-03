@@ -891,6 +891,11 @@ class IonRequestBuilder implements Builders.Any.B, Builders.Any.F, Builders.Any.
         return execute(new GsonSerializer<T>(ion.configure().getGson(), token));
     }
 
+    @Override
+    public <T> ResponseFuture<T> as(Type type) {
+        return execute(new GsonSerializer<T>(ion.configure().getGson(), type));
+    }
+
     ArrayList<WeakReference<Object>> groups;
     @Override
     public FutureBuilder group(Object groupKey) {

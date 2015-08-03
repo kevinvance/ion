@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.koushikdutta.ion.future.ResponseFuture;
 
+import java.lang.reflect.Type;
 import java.nio.charset.Charset;
 
 /**
@@ -51,4 +52,12 @@ public interface GsonFutureBuilder {
      * @return
      */
     public <T> ResponseFuture<T> as(TypeToken<T> token);
+
+    /**
+     * Deserialize the JSON request into a Java object of the given type using Gson.
+     * @param type the expected type
+     * @param <T>
+     * @return
+     */
+    public <T> ResponseFuture<T> as(Type token);
 }
